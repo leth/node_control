@@ -47,10 +47,16 @@ Vagrant::Config.run do |config|
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "./chef/cookbooks"
     chef.roles_path = "./chef/roles"
-    chef.data_bags_path = "./chef/data_bags"
+    # chef.data_bags_path = "./chef/data_bags"
     chef.add_role "node_config_server"
 
+    # chef.log_level = :debug
+
     # You may also specify custom JSON attributes:
-    chef.json = { :mysql_password => "foo" }
+    chef.json = {
+      :mysql => {
+        :server_root_password => "foo"
+      }
+    }
   end
 end
