@@ -55,7 +55,7 @@ Vagrant::Config.run do |config|
     # You may also specify custom JSON attributes:
     chef.json = {
       :mysql => {
-        :server_root_password => "foo"
+        :server_root_password => ""
       }
     }
   end
