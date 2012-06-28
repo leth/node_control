@@ -25,7 +25,7 @@ end
 
 execute 'create_sown_schema' do
   command 'mysql -u sown --password=password -e "source /vagrant/node_control/sql/sown_data.sql;" sown_data'
-  not_if '[ `mysql -B -u sown --password=password -e "show tables;" sown_data | wc -l` -ne 9 ]'
+  not_if '[ `mysql -B -u sown --password=password -e "show tables;" sown_data | wc -l` -gt 0 ]'
 end
 
 apt_repository "kohana" do
